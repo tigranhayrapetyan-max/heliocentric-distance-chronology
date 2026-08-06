@@ -1,0 +1,3 @@
+# Companion-manuscript statement for cover letters
+
+The present manuscript is being submitted concurrently with a companion study by the same author. The first manuscript develops and evaluates the astronomical and statistical method; the second applies the previously generated root catalogue to a distinct source-critical question concerning Armenian post-Flood genealogy. The manuscripts share a publicly archived computational dataset and software release but have different research questions, evidentiary structures, and conclusions. The concurrent submission is disclosed to permit coordinated editorial assessment and to avoid any ambiguity concerning overlap.

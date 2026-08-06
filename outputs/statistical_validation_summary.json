@@ -1,0 +1,30 @@
+{
+  "release_candidate": "0.9.0",
+  "workbook_counts": {
+    "1_8": 7863,
+    "3_6": 447,
+    "7_9": 42
+  },
+  "statistical_rule": {
+    "compact_window_days": 30,
+    "lag_min_days": 240,
+    "lag_max_days": 300,
+    "seed": 20260804,
+    "trials": 1000000
+  },
+  "results": {
+    "compact_7_9": 2,
+    "compact_3_6": 11,
+    "observed_pairs": 1,
+    "permitted_shift_days": 3491.7684375860263,
+    "span_days": 2171669.2134837965,
+    "conditional_shift_proportion": 0.0016078730664439102,
+    "monte_carlo_hits": 1649,
+    "monte_carlo_proportion": 0.001649
+  },
+  "offline_tests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "jpl_control_status": "not_run_network_unavailable"
+}

@@ -1,0 +1,2 @@
+condition,jd_tdb,date_tdb,astronomical_year,era,display_year,month,day,time_tdb,calendar,outer_body,outer_orbit_index,outer_phase,perihelion_jd_tdb,perihelion_date_tdb,perihelion_q_km,outer_distance_km,delta_outer_km,inner_distance_km,residual_km,roots_in_orbit
+3_6,1670952.282351060770,0139 BCE-10-26 18:46:35,-138,BCE,139,10,26,18:46:35,Julian,saturn,0,Receding from perihelion,1667074.750574658858,0149 BCE-03-15 06:00:50,1337895338.704968452454,1485361124.558696746826,147465785.853728294373,147465785.853729248047,-0.000000953674,1

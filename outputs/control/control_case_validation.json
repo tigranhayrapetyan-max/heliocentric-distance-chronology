@@ -1,0 +1,26 @@
+{
+  "tolerance_seconds": 120.0,
+  "checks": [
+    {
+      "condition": "7_9",
+      "expected": "BCE 0139-02-06 02:30:31",
+      "nearest": "0139 BCE-02-06 02:30:37",
+      "delta_seconds": 5.872589349746704,
+      "status": "pass"
+    },
+    {
+      "condition": "3_6",
+      "expected": "BCE 0139-10-26 18:46:33",
+      "nearest": "0139 BCE-10-26 18:46:35",
+      "delta_seconds": 2.1316520869731903,
+      "status": "pass"
+    },
+    {
+      "condition": "1_8_count_139_BCE",
+      "expected": 8,
+      "observed": 8,
+      "status": "pass"
+    }
+  ],
+  "overall_status": "pass"
+}

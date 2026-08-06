@@ -1,0 +1,2 @@
+condition,jd_tdb,date_tdb,astronomical_year,era,display_year,month,day,time_tdb,calendar,outer_body,outer_orbit_index,outer_phase,perihelion_jd_tdb,perihelion_date_tdb,perihelion_q_km,outer_distance_km,delta_outer_km,inner_distance_km,residual_km,roots_in_orbit
+7_9,1670689.604593432741,0139 BCE-02-06 02:30:37,-138,BCE,139,2,6,02:30:37,Julian,pluto,0,Receding from perihelion,1634218.137660062173,0239 BCE-03-31 15:18:14,4432580352.863425254822,7180122421.852646827698,2747542068.989221572876,2747542068.989222049713,-0.000000476837,1

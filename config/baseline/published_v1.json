@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "analysis_type": "heliocentric_distance_root_search",
+  "profile_id": "published_baseline_v1",
+  "interval": {
+    "start_astronomical_date": "-3999-01-01",
+    "stop_date": "2026-08-03"
+  },
+  "ephemeris": {
+    "provider": "JPL Horizons",
+    "center": "500@10",
+    "time_scale": "TDB",
+    "reference_system": "ICRF",
+    "reference_plane": "FRAME",
+    "vector_correction": "NONE",
+    "units": "KM-D",
+    "calendar": "MIXED"
+  },
+  "bodies": {
+    "mercury": "1",
+    "earth_moon": "3",
+    "saturn": "6",
+    "uranus": "7",
+    "neptune": "8",
+    "pluto": "9"
+  },
+  "conditions": {
+    "1_8": {
+      "inner_body": "mercury",
+      "outer_body": "neptune",
+      "inner_step_days": 2.0,
+      "outer_step_days": 20.0,
+      "padding_days": 65000.0
+    },
+    "3_6": {
+      "inner_body": "earth_moon",
+      "outer_body": "saturn",
+      "inner_step_days": 11.0,
+      "outer_step_days": 11.0,
+      "padding_days": 13000.0
+    },
+    "7_9": {
+      "inner_body": "uranus",
+      "outer_body": "pluto",
+      "inner_step_days": 30.0,
+      "outer_step_days": 30.0,
+      "padding_days": 100000.0
+    }
+  },
+  "numerics": {
+    "root_tolerance_days": 1e-09,
+    "horizons_chunk_size": 64
+  },
+  "output_namespace": "baseline/published_v1"
+}

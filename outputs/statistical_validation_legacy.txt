@@ -1,0 +1,17 @@
+Planetary coincidence circular-shift validation
+================================================
+Workbook:                  data/root_catalogue/Planetary_Coincidences_STATISTICAL_VALIDATION_EN_REVISED.xlsx
+1_8 roots:                 7,863
+3_6 centers:               447
+7_9 centers:               42
+Temporal span (days):       2171669.213483796
+Temporal span (years):      5945.828356459
+Compact threshold (days):   30
+Compact 7_9 centers:        2
+Compact 3_6 centers:        11
+Observed qualifying pairs:  1
+Permitted shift-days:       3491.768437586
+Directly computed conditional shift proportion:        0.001607873066
+Monte Carlo:                1,649/1,000,000 = 0.001649000000
+Random seed:                20260804
+Sensitivity CSV:            outputs/circular_shift_sensitivity_legacy.csv

@@ -1,0 +1,72 @@
+JPL HORIZONS ROOT-GENERATION REPRODUCIBILITY PROTOCOL
+====================================================
+
+Status
+------
+This document specifies the intended root-generation workflow. It does not by
+itself replace executable code and must be validated end to end against all
+7,863 / 447 / 42 disclosed roots.
+
+Official interfaces
+-------------------
+Horizons API: https://ssd-api.jpl.nasa.gov/doc/horizons.html
+Horizons File API: https://ssd-api.jpl.nasa.gov/doc/horizons_file.html
+
+Query settings
+--------------
+TABLE_TYPE / EPHEM_TYPE: VECTORS
+CENTER: 500@10
+TIME_TYPE: TDB
+REF_SYSTEM: ICRF
+VEC_CORR: NONE
+OUT_UNITS: KM-D
+CAL_TYPE: MIXED
+TLIST_TYPE: JD for ancient numerical Julian dates
+OBJ_DATA: NO
+MAKE_EPHEM: YES
+
+Planetary-system barycenter identifiers
+---------------------------------------
+Mercury: 1
+Earth-Moon: 3
+Saturn: 6
+Uranus: 7
+Neptune: 8
+Pluto: 9
+
+Original coarse sampling steps
+------------------------------
+1-8: Mercury every 2 days; Neptune every 20 days
+3-6: Earth and Saturn every 11 days
+7-9: Uranus and Pluto every 30 days
+
+Numerical workflow
+------------------
+1. Query and cache geometric heliocentric range series for each body.
+2. Record API version, request parameters, response checksums, software versions,
+   and query dates.
+3. Identify local minima of the outer planet range in each orbital revolution.
+4. Refine perihelion time and q with cubic interpolation and bounded minimization.
+5. Assign each time point to the relevant outer-planet revolution and q.
+6. Construct:
+      f_1-8(t) = [r_Neptune(t) - q_Neptune] - r_Mercury(t)
+      f_3-6(t) = [r_Saturn(t) - q_Saturn] - r_Earth-Moon(t)
+      f_7-9(t) = [r_Pluto(t) - q_Pluto] - r_Uranus(t)
+7. Interpolate component range series with cubic splines.
+8. Detect every sign-changing bracket.
+9. Refine each root with Brent's method to 10^-9 Julian day.
+10. Remove numerical duplicates and calculate the final residual.
+11. Store root time, calendar date, TDB, phase, perihelion date, q, component
+    distances, residual, and roots per outer orbit.
+
+Mandatory control case
+----------------------
+- eight 1-8 roots in 139 BCE;
+- 7-9 on 6 February 139 BCE at 02:30:31 TDB;
+- 3-6 on 26 October 139 BCE at 18:46:33 TDB.
+
+Multiplicity limitation
+-----------------------
+Root reproduction does not correct the exploratory look-elsewhere effect. The
+reported 0.001607873 value is a directly computed, unadjusted conditional
+circular-shift proportion for the final selected rule.

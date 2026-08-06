@@ -1,0 +1,39 @@
+{
+  "nominal_interval": {
+    "start_astronomical_date": "-3999-01-01",
+    "stop_date": "2026-08-03"
+  },
+  "horizons": {
+    "api": "https://ssd.jpl.nasa.gov/api/horizons_file.api",
+    "center": "500@10",
+    "time_type": "TDB",
+    "reference_system": "ICRF",
+    "reference_plane": "FRAME",
+    "vector_correction": "NONE",
+    "output_units": "KM-D",
+    "calendar_type": "MIXED",
+    "tlist_type": "JD",
+    "chunk_size": 5000
+  },
+  "bodies": {
+    "Mercury": "1",
+    "Earth-Moon barycenter": "3",
+    "Saturn barycenter": "6",
+    "Uranus barycenter": "7",
+    "Neptune barycenter": "8",
+    "Pluto barycenter": "9"
+  },
+  "conditions": {
+    "1_8": {"inner": "Mercury", "outer": "Neptune", "step_days": 2},
+    "3_6": {"inner": "Earth-Moon barycenter", "outer": "Saturn", "step_days": 11},
+    "7_9": {"inner": "Uranus", "outer": "Pluto", "step_days": 30}
+  },
+  "root_tolerance_days": 1e-9,
+  "statistical_rule": {
+    "compact_window_days": 30,
+    "lag_min_days": 240,
+    "lag_max_days": 300,
+    "monte_carlo_trials": 1000000,
+    "random_seed": 20260804
+  }
+}

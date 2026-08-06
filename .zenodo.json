@@ -1,0 +1,27 @@
+{
+  "title": "Heliocentric Distance Chronology: JPL Horizons Root Generation and Statistical Validation",
+  "description": "Executable and documented computational workflow for generating three heliocentric-distance root catalogues from NASA/JPL Horizons, reproducing the associated circular-shift analysis, and documenting root provenance for two companion studies of Armenian historical and mythological chronology. The release distinguishes astronomical computation from retrospective historical interpretation and records the unresolved exploratory multiplicity limitation.",
+  "upload_type": "software",
+  "publication_date": "2026-08-05",
+  "creators": [
+    {
+      "name": "Hayrapetyan, Tigran A.",
+      "affiliation": "Department of Zoology, Faculty of Biology, Yerevan State University, Yerevan, Armenia",
+      "orcid": "0000-0002-9806-0778"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "cultural astronomy",
+    "JPL Horizons",
+    "heliocentric distance",
+    "root finding",
+    "Armenian historical memory",
+    "circular time shift",
+    "Monte Carlo"
+  ],
+  "access_right": "open",
+  "version": "0.9.3",
+  "language": "eng",
+  "notes": "Statistical reproduction from the disclosed catalogue is verified, and the reconstructed NASA/JPL Horizons generator passed the limited 139 BCE control case. Full 4000 BCE–2026 CE catalogue regeneration and root-by-root comparison remain pending; this package is therefore a release candidate and should not yet be presented as the final v1.0.0 end-to-end archive."
+}

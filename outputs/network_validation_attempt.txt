@@ -1,0 +1,5 @@
+Attempted command:
+python code/horizons_root_generation.py --start=-0140-01-01 --stop=-0137-12-31 --cache-dir cache/horizons_control --work-dir outputs/control --output-dir outputs/control/roots --validate-control
+
+Result:
+The sandbox could not resolve ssd.jpl.nasa.gov (temporary DNS failure). No Horizons data were downloaded, and this attempt does not constitute either a pass or a fail of the astronomical control case. Run the supplied Windows control script on a network-enabled computer.

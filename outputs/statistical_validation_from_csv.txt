@@ -1,0 +1,10 @@
+threshold_days: 30.0
+compact_7_9: 2
+compact_3_6: 11
+observed_pairs: 1
+permitted_shift_days: 3491.7684375860263
+span_days: 2171669.2134837965
+computed_shift_proportion: 0.0016078730664439102
+monte_carlo_hits: 1649
+monte_carlo_trials: 1000000
+monte_carlo_proportion: 0.001649

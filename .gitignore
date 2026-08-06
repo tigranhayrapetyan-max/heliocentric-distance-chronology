@@ -1,0 +1,13 @@
+.venv/
+cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+*.bak
+.Rhistory
+.RData
+outputs/series/
+outputs/control/series/
+archive/

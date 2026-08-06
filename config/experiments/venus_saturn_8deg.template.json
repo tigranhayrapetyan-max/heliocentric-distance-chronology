@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "status": "design-template",
+  "analysis_type": "angular_enclosure",
+  "experiment_id": "venus_saturn_8deg",
+  "bodies": {
+    "target": "venus",
+    "boundary": "saturn"
+  },
+  "angular_threshold_deg": 8.0,
+  "interval": {
+    "start_astronomical_date": "-3999-01-01",
+    "stop_date": "2026-08-03"
+  },
+  "output_namespace": "experiments/venus_saturn_8deg",
+  "note": "Architecture template for the planned configurable angular-analysis module; not executed by the v1.0.0 distance-root engine."
+}

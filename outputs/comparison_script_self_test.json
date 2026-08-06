@@ -1,0 +1,36 @@
+{
+  "tolerance_seconds": 0.001,
+  "conditions": {
+    "1_8": {
+      "reference_count": 7863,
+      "generated_count": 7863,
+      "matched_within_tolerance": 7863,
+      "missing_reference_roots": 0,
+      "extra_generated_roots": 0,
+      "max_abs_delta_seconds": 0.0,
+      "median_abs_delta_seconds": 0.0,
+      "status": "pass"
+    },
+    "3_6": {
+      "reference_count": 447,
+      "generated_count": 447,
+      "matched_within_tolerance": 447,
+      "missing_reference_roots": 0,
+      "extra_generated_roots": 0,
+      "max_abs_delta_seconds": 0.0,
+      "median_abs_delta_seconds": 0.0,
+      "status": "pass"
+    },
+    "7_9": {
+      "reference_count": 42,
+      "generated_count": 42,
+      "matched_within_tolerance": 42,
+      "missing_reference_roots": 0,
+      "extra_generated_roots": 0,
+      "max_abs_delta_seconds": 0.0,
+      "median_abs_delta_seconds": 0.0,
+      "status": "pass"
+    }
+  },
+  "overall_status": "pass"
+}

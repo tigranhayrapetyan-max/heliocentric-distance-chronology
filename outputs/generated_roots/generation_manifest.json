@@ -1,0 +1,43 @@
+{
+  "script": "horizons_root_generation.py",
+  "script_sha256": "bf097e9a9979ef02d7b253edab18f2ca78f5df8a9eda35d52a7ce4bbc64dd478",
+  "conditions": [
+    "1_8",
+    "3_6",
+    "7_9"
+  ],
+  "start": "-3999-01-01",
+  "stop": "2026-08-03",
+  "root_tolerance_days": 1e-09,
+  "body_ids": {
+    "mercury": "1",
+    "earth_moon": "3",
+    "saturn": "6",
+    "uranus": "7",
+    "neptune": "8",
+    "pluto": "9"
+  },
+  "condition_config": {
+    "1_8": {
+      "inner": "mercury",
+      "outer": "neptune",
+      "inner_step_days": 2.0,
+      "outer_step_days": 20.0,
+      "padding_days": 65000.0
+    },
+    "3_6": {
+      "inner": "earth_moon",
+      "outer": "saturn",
+      "inner_step_days": 11.0,
+      "outer_step_days": 11.0,
+      "padding_days": 13000.0
+    },
+    "7_9": {
+      "inner": "uranus",
+      "outer": "pluto",
+      "inner_step_days": 30.0,
+      "outer_step_days": 30.0,
+      "padding_days": 100000.0
+    }
+  }
+}
