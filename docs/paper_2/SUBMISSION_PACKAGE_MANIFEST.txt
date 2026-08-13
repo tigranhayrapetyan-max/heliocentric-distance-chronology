@@ -1,0 +1,21 @@
+ARTICLE 2 — FINAL JAC SUBMISSION PACKAGE
+Post-Flood Genealogy as a Compressed Founding Formula:
+A Chronological, Textual, and Archaeological Study of the Gomer-Tiras-Togarmah-Hayk Sequence
+
+Primary files for double-anonymous review:
+1. 01A_Main_Manuscript_Anonymous_FINAL.docx
+2. 02A_Supplementary_Table_S1_Anonymous_FINAL.csv
+3. 04_Figure_1_High_Resolution_FINAL.png — upload separately only if the submission system requests a separate figure file
+
+Author and internal audit copies:
+- 01_Main_Manuscript_Identified_FINAL.docx — identified author version
+- 01B_Main_Manuscript_Tracked_Changes_FINAL.docx — tracked record of the final minor revisions
+- 02_Supplementary_Table_S1_Principal_Nodes_FINAL.csv — identified supplementary table
+
+No cover letter is included because Journal of Astronomy in Culture does not require one for this submission.
+
+Reproducibility archive:
+GitHub: https://github.com/tigranhayrapetyan-max/heliocentric-distance-chronology
+Zenodo DOI: 10.5281/zenodo.21825866
+
+Finalized: 7 August 2026
