@@ -1,0 +1,32 @@
+{
+  "register_version": "ARMENIAN_HISTORICAL_MASTER_REGISTER_FROZEN_V1",
+  "freeze_utc": "2026-08-13T18:37:53.730556+00:00",
+  "historical_selection_used_astronomy": false,
+  "historical_selection_seeded_from_mutacio": false,
+  "mutacio_known_in_prior_project_history": true,
+  "freeze_rule": "Post-freeze Mutacio audit may diagnose coverage but may not mutate this frozen version.",
+  "counts": {
+    "total": 152,
+    "primary": 80,
+    "sensitivity": 42,
+    "analysis_eligible": 122,
+    "undated_retained": 5,
+    "single_source_retained": 15,
+    "context_only": 9,
+    "rejected": 1,
+    "clusters": 138,
+    "clustered_representatives": 111
+  },
+  "files": {
+    "ARMENIAN_HISTORICAL_MASTER_REGISTER_FROZEN_V1.xlsx": "81c92e27e2c8728ce554fb2f19b4e418097801d367ca2ba749cb4f4db161747a",
+    "ARMENIAN_HISTORICAL_MASTER_REGISTER_FROZEN_V1.csv": "402766d4dd060eea0daec7debe01857db66eb638898cd761e7c4168e7ed18d00",
+    "ARMENIAN_HISTORICAL_MASTER_ANALYSIS_ELIGIBLE.csv": "fc0c233db19fed02fa4a8885ad970659e23bf110d9ff8aa80dba583bf50312c4",
+    "ARMENIAN_HISTORICAL_MASTER_CLUSTERED_ROBUSTNESS.csv": "5bbdf8e0421d640ea788304e564789f60940c13e440d478977a9944741c48604",
+    "ARMENIAN_HISTORICAL_MASTER_NONANALYSIS_RETAINED.csv": "dca24c6612cd20519001a6c6016adb723c905a560c2f1e11c0787ac58ca5cd0b",
+    "ARMENIAN_HISTORICAL_MASTER_REJECTED.csv": "6b1473185f3efd42fb38f08f230db6f877192028dc7ec34c0254c050cd522690",
+    "EVENT_CLUSTER_QC.csv": "e81a20c11eef8ae058a738b7eedbc7b4a0b864391e74cc880ed828911071ed14",
+    "HISTORICAL_GAPS.csv": "c123a792cfe41f135c73148666107e748998d13e3c8cec33bea27356709ca3ac",
+    "V0_ANCIENT_POLITIES_FINAL.csv": "11cb012065c0913bb355e0001d6eeb9fffe660c8a723dc72f664f2f2e3870300",
+    "V2_3_SOVEREIGN_ACCESSIONS_FINAL.csv": "61680c2cb4b718965055cb158cf05dabc669e5f0c80a81e55de5a5b71f3f7929"
+  }
+}
