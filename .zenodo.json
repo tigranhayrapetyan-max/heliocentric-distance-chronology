@@ -1,8 +1,8 @@
 {
-  "title": "Heliocentric Distance Chronology: JPL Horizons Root Generation and Statistical Validation",
-  "description": "Executable and documented computational workflow for generating three heliocentric-distance root catalogues from NASA/JPL Horizons, reproducing the associated circular-shift analysis, and documenting root provenance for two companion studies of Armenian historical and mythological chronology. The release distinguishes astronomical computation from retrospective historical interpretation and records the unresolved exploratory multiplicity limitation.",
+  "title": "Heliocentric Distance Chronology: JPL Horizons Root Generation, Validation, and Historical-Test Reproducibility",
+  "description": "Version 1.1.0 extends the validated Heliocentric Distance Chronology software archive with publication-facing reproducibility materials for two companion studies. It preserves the validated 1–8, 3–6, and 7–9 root catalogues; adds the independently frozen Armenian historical analysis input for Paper 3; documents the preregistered H1 tests, deterministic cluster robustness, and the corrected direct exact-day historical rule for 7–9 and 3–6 roots; and records a JD/TDB calendar-normalization audit. The Paper 3 confirmatory analyses do not support enrichment of the preregistered Armenian negative state-transition hypothesis. Historical selection remained frozen before astronomical inspection.",
   "upload_type": "software",
-  "publication_date": "2026-08-05",
+  "publication_date": "2026-08-14",
   "creators": [
     {
       "name": "Hayrapetyan, Tigran A.",
@@ -16,12 +16,13 @@
     "JPL Horizons",
     "heliocentric distance",
     "root finding",
-    "Armenian historical memory",
+    "Armenian historical chronology",
     "circular time shift",
-    "Monte Carlo"
+    "historical transitions",
+    "reproducibility"
   ],
   "access_right": "open",
-  "version": "0.9.3",
+  "version": "1.1.0",
   "language": "eng",
-  "notes": "Statistical reproduction from the disclosed catalogue is verified, and the reconstructed NASA/JPL Horizons generator passed the limited 139 BCE control case. Full 4000 BCE–2026 CE catalogue regeneration and root-by-root comparison remain pending; this package is therefore a release candidate and should not yet be presented as the final v1.0.0 end-to-end archive."
+  "notes": "The v1.0.0 clean-room astronomical baseline remains unchanged. Version 1.1.0 adds Paper 2 provenance materials and the independently frozen, calendar-normalized Paper 3 historical-test layer. Astronomical instants are keyed by JD/TDB; historical civil-day comparison uses the Julian calendar before 15 October 1582 and the Gregorian calendar thereafter."
 }
