@@ -1,20 +1,21 @@
-cff-version: 0.9.3
-message: "If you use this computational package, please cite the archived Zenodo release and the associated articles."
-title: "Heliocentric Distance Chronology: JPL Horizons Root Generation and Statistical Validation"
+cff-version: 1.2.0
+message: "If you use this computational package, please cite the archived Zenodo record and the associated articles."
+title: "Heliocentric Distance Chronology: JPL Horizons Root Generation, Validation, and Historical-Test Reproducibility"
 type: software
 authors:
   - family-names: Hayrapetyan
     given-names: Tigran A.
     orcid: "https://orcid.org/0000-0002-9806-0778"
-version: 0.9.3
-date-released: 2026-08-05
+version: 1.1.0
+date-released: 2026-08-14
 license: MIT
 repository-code: "https://github.com/tigranhayrapetyan-max/heliocentric-distance-chronology"
-url: "https://doi.org/10.5281/zenodo.REPLACE_AFTER_PUBLICATION"
+url: "https://doi.org/10.5281/zenodo.21825866"
 keywords:
   - cultural astronomy
   - JPL Horizons
   - heliocentric distance
   - root finding
   - Armenian chronology
-  - Monte Carlo
+  - circular time shift
+  - reproducibility
