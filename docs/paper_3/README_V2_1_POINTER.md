@@ -1,0 +1,1 @@
+Canonical release status is documented in FINAL_STATUS_V2_1.md and CALENDAR_NORMALIZATION_AUDIT_V2_1.md. These V2.1 files supersede the earlier display-string implementation details while preserving the frozen historical selection and the original precommit artifact.
