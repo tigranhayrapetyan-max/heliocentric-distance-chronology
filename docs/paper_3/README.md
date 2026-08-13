@@ -1,75 +1,42 @@
 # Paper 3 — Armenian historical transitions and frozen astronomical conditions
 
-## Status
+## Canonical release status: V2.1
 
-Reanalysis completed against an independently reconstructed and frozen Armenian historical master register.
+Paper 3 tests frozen astronomical conditions against an independently reconstructed Armenian historical register. Historical selection was frozen before astronomical reanalysis and was not altered after match inspection.
 
-This directory contains the publication-facing reproducibility materials for the Armenian confirmatory test. Historical inclusion was frozen before the astronomical reanalysis, and the historical dataset was not repaired after inspection of astronomical matches.
+### Principal H1 result
 
-## Principal result
-
-The principal directional test is:
-
-`STATE_NEGATIVE_NARROW_PRIMARY × H1`
-
-with the narrow negative definition:
-
-`COLLAPSE + SOVEREIGNTY_LOSS`
-
-Observed result:
+The preregistered directional test is `STATE_NEGATIVE_NARROW_PRIMARY × H1`, where the narrow negative class is `COLLAPSE + SOVEREIGNTY_LOSS`.
 
 - N = 8
-- H1 matches = 0
-- circular-shift null mean ≈ 1.041
-- enrichment p = 1.000
+- observed H1 matches = 0
+- circular-shift null mean = 1.048789
+- enrichment p = 1.000000
 
-The broader all-primary state test produced 1/26 H1 matches (null mean ≈ 3.383; p ≈ 0.9486), and the clustered robustness version produced 0/22.
+All primary state transitions: 1/26, null mean 3.408563, p = 0.946565. Clustered all-primary state transitions: 0/22, p = 1.000000.
 
-## Correct historical rule for 7–9 and 3–6
+### Correct 7–9 / 3–6 historical rule
 
-The historical H2/H3 test is a **direct exact-day coincidence test**:
+7–9 and 3–6 are tested as **direct exact-day coincidences with independently sourced historical exact days**. H1 membership is not required and no ±day tolerance is permitted.
 
-- H2 = corrected 7–9 roots.
-- H3 = corrected 3–6 roots.
-- A historical match occurs only when the astronomical root calendar day is the same calendar day as an independently sourced historical event with an exact day.
-- H1 membership is not required.
-- No ±day tolerance is allowed.
+Astronomical instants are keyed by JD/TDB. Historical civil dates use the Julian calendar before 15 October 1582 and Gregorian thereafter. This avoids comparing raw date labels produced under different calendar conventions.
 
-Using the frozen Armenian master:
+- eligible historical exact-day events = 9
+- direct 7–9 matches = 0/9
+- direct 3–6 matches = 0/9
 
-- eligible exact-day historical events = 9
-- 7–9 direct same-day matches = 0/9
-- 3–6 direct same-day matches = 0/9
+### Tigran II
 
-The earlier assistant-side reinterpretation of H2/H3 as a historical year-overlap test is superseded by `H2_H3_DIRECT_HISTORICAL_DAY_RULE_CORRECTION_V2.md`.
+The frozen 95/94 BCE accession interval overlaps H1 but is a sensitivity-only observation: single-event circular-shift p = 0.257717. It is not eligible for the direct 7–9 / 3–6 day test because no exact accession day is independently established.
 
-## Files
+## Reproducibility files
 
-### Historical inputs
-- `../../data/paper_3/Armenian_Historical_Master_Analysis_Eligible.csv`
-- `../../data/paper_3/Historical_Core_Freeze_Manifest.json`
-- `../../data/paper_3/Historical_Gaps.csv`
+Paper-specific inputs are under `data/paper_3/`. The existing validated repository catalogues `outputs/generated_roots/roots_7_9.csv` and `outputs/generated_roots/roots_3_6.csv` are reused rather than duplicated.
 
-### Frozen astronomical catalogues
-- `../../data/paper_3/H1_Episodes_Frozen.csv`
-- `../../data/paper_3/H2_7-9_Roots_Frozen.csv`
-- `../../data/paper_3/H3_3-6_Roots_Frozen.csv`
-- `../../data/paper_3/H4_Exact_Overlaps_Frozen.csv`
+Because direct executable-source creation was blocked by the release connector, the byte-for-byte verified reanalysis source is stored as `code/paper_3_reanalysis.py.b64`. Decode it using `DECODE_REANALYSIS_SCRIPT.md`; the decoded source SHA-256 is `f2bbb1aacb5fa3e6fafb628f93e0449baec5787a076ed9a88f24f914d98cf912`.
 
-### Protocol and results
-- `ASTRONOMY_REANALYSIS_PRECOMMIT_V1.md`
-- `H2_H3_DIRECT_HISTORICAL_DAY_RULE_CORRECTION_V2.md`
-- `H2_H3_DIRECT_SAME_DAY_SUMMARY.csv`
-- `TIGRAN_II_ACCESSION_H1_DIAGNOSTIC.csv`
-- `EXPECTED_RESULTS.json`
-
-### Reproduction script
-Run from the repository root:
-
-```bash
-python code/paper_3_reanalysis.py
-```
+See `CALENDAR_NORMALIZATION_AUDIT_V2_1.md`, `EXPECTED_RESULTS_V2_1.md`, and `REANALYSIS_ALGORITHM_V2_1.md` for the canonical implementation and expected outputs.
 
 ## Interpretation
 
-The initially striking astronomical–historical pattern did not reproduce as an enriched signal after independent historical reconstruction, freezing, and confirmatory testing. The result is therefore reported as a robust negative finding under the frozen historical and astronomical definitions, while individual visually striking coincidences remain valid as descriptive observations rather than evidence of a stable underlying signal.
+The initially striking astronomical–historical pattern did not reproduce as an enriched signal after independent historical reconstruction, freezing, and confirmatory testing. The observed coincidences are compatible with chance under the frozen null models and do not establish a stable temporal regularity.
