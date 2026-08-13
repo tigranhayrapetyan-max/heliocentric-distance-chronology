@@ -1,0 +1,1 @@
+This branch adds the V2.1 JD/TDB calendar normalization discovered during release preparation. The normalization leaves the observed Paper 3 conclusions unchanged and only makes the implementation convention explicit.
