@@ -1,0 +1,3 @@
+h4_type,h1_global_id,root_configuration,root_global_id,root_calendar_tdb,h1_start_calendar_tdb,h1_best_calendar_tdb,h1_end_calendar_tdb,days_after_h1_start,days_from_h1_best,days_before_h1_end,pluto_in_hayk_at_root
+H4b,264,3-6,143,1898 BCE-06-04 14:15:20.064 TDB,1898BC-May-26 07:04:02.599,1898BC-May-30 15:00:31.704,1898BC-Jun-07 10:51:45.246,9.29950769606512,4.968615273130126,2.8586247909115627,FALSE
+H4b,551,3-6,302,363 CE-10-08 05:52:41.790 TDB,363AD-Oct-03 03:04:04.623,363AD-Oct-06 02:16:11.851,363AD-Oct-12 19:53:55.449,5.117096850881353,2.1503465168643743,4.584185857325792,FALSE
