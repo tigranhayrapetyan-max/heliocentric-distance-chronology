@@ -7,6 +7,8 @@ on:
     paths:
       - 'tools/article4/a4_build_historical_stageA.py'
       - 'tools/article4/apply_stageA_year0_amendment.py'
+      - 'tools/article4/apply_stageA_conservative_identity.py'
+      - 'tools/article4/build_stageA_identity_review.py'
       - '.github/workflows/article4_stage_a_cliopatria.yml'
   workflow_dispatch:
 
@@ -53,11 +55,17 @@ jobs:
       - name: Apply source year-zero amendment
         run: python tools/article4/apply_stageA_year0_amendment.py
 
+      - name: Apply conservative identity amendment
+        run: python tools/article4/apply_stageA_conservative_identity.py
+
       - name: Build astronomy-blind Stage A census
         run: |
           python tools/article4/a4_build_historical_stageA.py \
             cliopatria.geojson.zip \
             --outdir A4_STAGE_A_OUTPUT
+
+      - name: Build cross-name identity review queue
+        run: python tools/article4/build_stageA_identity_review.py
 
       - name: Package deterministic outputs
         shell: bash
@@ -65,6 +73,8 @@ jobs:
           set -euo pipefail
           cp SOURCE_ACQUISITION.txt A4_STAGE_A_OUTPUT/
           cp tools/article4/apply_stageA_year0_amendment.py A4_STAGE_A_OUTPUT/
+          cp tools/article4/apply_stageA_conservative_identity.py A4_STAGE_A_OUTPUT/
+          cp tools/article4/build_stageA_identity_review.py A4_STAGE_A_OUTPUT/
           cp tools/article4/a4_build_historical_stageA.py A4_STAGE_A_OUTPUT/EXECUTED_a4_build_historical_stageA.py
           find A4_STAGE_A_OUTPUT -maxdepth 1 -type f ! -name PACKAGE_SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > A4_STAGE_A_OUTPUT/PACKAGE_SHA256SUMS.txt
           python - <<'PY'
@@ -72,21 +82,24 @@ jobs:
           m=json.loads(pathlib.Path('A4_STAGE_A_OUTPUT/MANIFEST_STAGE_A.json').read_text())
           c=m['counts']
           print(json.dumps(c, indent=2))
-          assert m['protocol_id']=='A4_GLOBAL_TRANSITIONS_V2_STAGE_A_YEAR0_AMENDED'
+          assert m['protocol_id']=='A4_GLOBAL_TRANSITIONS_V2_STAGE_A_YEAR0_NAME_CONSERVATIVE'
           assert m['astronomy_consulted'] is False
-          assert c['raw_features_seen'] > 10000
-          assert c['valid_rows']==c['raw_features_seen']
+          assert c['raw_features_seen']==13765
+          assert c['valid_rows']==13765
           assert c['row_qc_records']==0
-          assert c['unique_polity_identity_keys'] > 1000
-          assert c['candidate_transitions_all'] > 2000
+          assert c['unique_polity_identity_keys'] > 1400
+          assert c['candidate_transitions_all'] > 3000
           headers=next(csv.reader(open('A4_STAGE_A_OUTPUT/GLOBAL_TRANSITIONS_CANDIDATE_ALL.csv',encoding='utf-8-sig')))
           assert 'YEAR_CLI' in headers and 'YEAR_ASTRO' not in headers
+          review=list(csv.DictReader(open('A4_STAGE_A_OUTPUT/GLOBAL_CROSS_NAME_IDENTITY_REVIEW.csv',encoding='utf-8-sig')))
+          assert len(review)>0
+          print('cross_name_identity_review=',len(review))
           PY
 
       - name: Upload Stage A artifact
         uses: actions/upload-artifact@v4
         with:
-          name: article4-cliopatria-stage-a-v0.2.0-year0-amended
+          name: article4-cliopatria-stage-a-v0.2.0-conservative-identity
           path: A4_STAGE_A_OUTPUT/
           if-no-files-found: error
           retention-days: 30
