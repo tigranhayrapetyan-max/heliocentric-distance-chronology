@@ -6,6 +6,7 @@ on:
       - a4-cliopatria-stage-a
     paths:
       - 'tools/article4/a4_build_historical_stageA.py'
+      - 'tools/article4/apply_stageA_year0_amendment.py'
       - '.github/workflows/article4_stage_a_cliopatria.yml'
   workflow_dispatch:
 
@@ -49,6 +50,9 @@ jobs:
           print('SOURCE_SHA256='+sha)
           PY
 
+      - name: Apply source year-zero amendment
+        run: python tools/article4/apply_stageA_year0_amendment.py
+
       - name: Build astronomy-blind Stage A census
         run: |
           python tools/article4/a4_build_historical_stageA.py \
@@ -60,22 +64,29 @@ jobs:
         run: |
           set -euo pipefail
           cp SOURCE_ACQUISITION.txt A4_STAGE_A_OUTPUT/
-          find A4_STAGE_A_OUTPUT -maxdepth 1 -type f -print0 | sort -z | xargs -0 sha256sum > A4_STAGE_A_OUTPUT/PACKAGE_SHA256SUMS.txt
+          cp tools/article4/apply_stageA_year0_amendment.py A4_STAGE_A_OUTPUT/
+          cp tools/article4/a4_build_historical_stageA.py A4_STAGE_A_OUTPUT/EXECUTED_a4_build_historical_stageA.py
+          find A4_STAGE_A_OUTPUT -maxdepth 1 -type f ! -name PACKAGE_SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > A4_STAGE_A_OUTPUT/PACKAGE_SHA256SUMS.txt
           python - <<'PY'
-          import json, pathlib
+          import json, pathlib, csv
           m=json.loads(pathlib.Path('A4_STAGE_A_OUTPUT/MANIFEST_STAGE_A.json').read_text())
           c=m['counts']
           print(json.dumps(c, indent=2))
+          assert m['protocol_id']=='A4_GLOBAL_TRANSITIONS_V2_STAGE_A_YEAR0_AMENDED'
           assert m['astronomy_consulted'] is False
           assert c['raw_features_seen'] > 10000
+          assert c['valid_rows']==c['raw_features_seen']
+          assert c['row_qc_records']==0
           assert c['unique_polity_identity_keys'] > 1000
           assert c['candidate_transitions_all'] > 2000
+          headers=next(csv.reader(open('A4_STAGE_A_OUTPUT/GLOBAL_TRANSITIONS_CANDIDATE_ALL.csv',encoding='utf-8-sig')))
+          assert 'YEAR_CLI' in headers and 'YEAR_ASTRO' not in headers
           PY
 
       - name: Upload Stage A artifact
         uses: actions/upload-artifact@v4
         with:
-          name: article4-cliopatria-stage-a-v0.2.0
+          name: article4-cliopatria-stage-a-v0.2.0-year0-amended
           path: A4_STAGE_A_OUTPUT/
           if-no-files-found: error
           retention-days: 30
