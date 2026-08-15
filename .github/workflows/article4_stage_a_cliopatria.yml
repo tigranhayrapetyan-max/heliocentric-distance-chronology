@@ -1,0 +1,81 @@
+name: Article 4 Cliopatria Stage A
+
+on:
+  push:
+    branches:
+      - a4-cliopatria-stage-a
+    paths:
+      - 'tools/article4/a4_build_historical_stageA.py'
+      - '.github/workflows/article4_stage_a_cliopatria.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-stage-a:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout historical-only branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install streaming parser
+        run: python -m pip install --disable-pip-version-check ijson
+
+      - name: Acquire frozen Cliopatria v0.2.0 source
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 5 --retry-all-errors \
+            -o cliopatria.geojson.zip \
+            'https://raw.githubusercontent.com/Seshat-Global-History-Databank/cliopatria/v0.2.0/cliopatria.geojson.zip'
+          test "$(stat -c%s cliopatria.geojson.zip)" = '44231317'
+          python - <<'PY'
+          import hashlib, pathlib
+          p=pathlib.Path('cliopatria.geojson.zip')
+          data=p.read_bytes()
+          git=hashlib.sha1(f'blob {len(data)}\0'.encode()+data).hexdigest()
+          sha=hashlib.sha256(data).hexdigest()
+          assert git=='cefab0f4b622e2e7fb3daf68d4f461f83991204c', git
+          pathlib.Path('SOURCE_ACQUISITION.txt').write_text(
+              f'release=v0.2.0\ncommit=ad28a691b7c07c1fca89d0e0636d324667d2a258\n'
+              f'bytes={len(data)}\ngit_blob_sha1={git}\nsha256={sha}\n'
+              'astronomy_consulted=false\n', encoding='utf-8')
+          print('SOURCE_SHA256='+sha)
+          PY
+
+      - name: Build astronomy-blind Stage A census
+        run: |
+          python tools/article4/a4_build_historical_stageA.py \
+            cliopatria.geojson.zip \
+            --outdir A4_STAGE_A_OUTPUT
+
+      - name: Package deterministic outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp SOURCE_ACQUISITION.txt A4_STAGE_A_OUTPUT/
+          find A4_STAGE_A_OUTPUT -maxdepth 1 -type f -print0 | sort -z | xargs -0 sha256sum > A4_STAGE_A_OUTPUT/PACKAGE_SHA256SUMS.txt
+          python - <<'PY'
+          import json, pathlib
+          m=json.loads(pathlib.Path('A4_STAGE_A_OUTPUT/MANIFEST_STAGE_A.json').read_text())
+          c=m['counts']
+          print(json.dumps(c, indent=2))
+          assert m['astronomy_consulted'] is False
+          assert c['raw_features_seen'] > 10000
+          assert c['unique_polity_identity_keys'] > 1000
+          assert c['candidate_transitions_all'] > 2000
+          PY
+
+      - name: Upload Stage A artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: article4-cliopatria-stage-a-v0.2.0
+          path: A4_STAGE_A_OUTPUT/
+          if-no-files-found: error
+          retention-days: 30
